@@ -70,7 +70,6 @@
 #define HAVE_GETEUID 1
 #define HAVE_GETOPT_H 1
 #define HAVE_GETTIMEOFDAY 1
-#define HAVE_GETTTYNAM 1
 #define HAVE_HAS_KEY 1
 #define HAVE_INTTYPES_H 1
 #define HAVE_IOSTREAM 1
