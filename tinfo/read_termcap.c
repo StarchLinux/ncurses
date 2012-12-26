@@ -89,10 +89,10 @@ get_termpath(void)
 #define _nc_cgetmatch cgetmatch
 #define _nc_cgetset   cgetset
 #else
-static int _nc_cgetmatch(char *, const char *);
-static int _nc_getent(char **, unsigned *, int *, int, char **, int, const char
+int _nc_cgetmatch(char *, const char *);
+int _nc_getent(char **, unsigned *, int *, int, char **, int, const char
 		      *, int, char *);
-static int _nc_nfcmp(const char *, char *);
+int _nc_nfcmp(const char *, char *);
 
 /*-
  * Copyright (c) 1992, 1993
@@ -139,7 +139,7 @@ static int gottoprec;		/* Flag indicating retrieval of toprecord */
  * database array, in effect "pushing" the buffer on top of the virtual
  * database.  0 is returned on success, -1 on failure.
  */
-static int
+int
 _nc_cgetset(const char *ent)
 {
     if (ent == 0) {
@@ -226,7 +226,7 @@ _nc_cgetcap(char *buf, const char *cap, int type)
  * TC_REF_LOOP   if a potential reference loop is detected
  * TC_UNRESOLVED if we had too many recurrences to resolve
  */
-static int
+int
 _nc_cgetent(char **buf, int *oline, char **db_array, const char *name)
 {
     unsigned dummy;
@@ -253,7 +253,7 @@ _nc_cgetent(char **buf, int *oline, char **db_array, const char *name)
  *	  MAX_RECURSION.
  */
 #define DOALLOC(size) typeRealloc(char, size, record)
-static int
+int
 _nc_getent(
 	      char **cap,	/* termcap-content */
 	      unsigned *len,	/* length, needed for recursion */
@@ -582,7 +582,7 @@ _nc_getent(
  * Cgetmatch will return 0 if name is one of the names of the capability
  * record buf, -1 if not.
  */
-static int
+int
 _nc_cgetmatch(char *buf, const char *name)
 {
     register const char *np;
@@ -624,7 +624,7 @@ _nc_cgetmatch(char *buf, const char *name)
 /*
  * Compare name field of record.
  */
-static int
+int
 _nc_nfcmp(const char *nf, char *rec)
 {
     char *cp, tmp;
@@ -758,7 +758,7 @@ copy_tc_token(char *dst, const char *src, size_t len)
 /*
  * Get an entry for terminal name in buffer bp from the termcap file.
  */
-static int
+int
 _nc_tgetent(char *bp, char **sourcename, int *lineno, const char *name)
 {
     static char *the_source;
