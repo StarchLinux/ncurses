@@ -1,5 +1,7 @@
 #	$OpenBSD: src/lib/libcurses/Makefile,v 1.62 2012/08/02 13:38:38 okan Exp $
 
+SUBDIR = tput tset tic
+
 # Uncomment this to enable tracing in libcurses
 #CURSESTRACE=-DTRACE
 
