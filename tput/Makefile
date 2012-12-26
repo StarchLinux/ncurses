@@ -5,6 +5,7 @@ DPADD=	${LIBCURSES}
 LDADD=	-lcurses
 MLINKS=	tput.1 clear.1
 LINKS= ${BINDIR}/tput ${BINDIR}/clear
+CFLAGS+= -I..
 LDFLAGS+= -L..
 
 .include <bsd.prog.mk>
