@@ -265,7 +265,7 @@ init(void)
 	char *buf;
 	int wstatus;
 
-	if (init_prog && !issetugid()) {
+	if (init_prog) {
 		switch (vfork()) {
 		case -1:
 			err(4, "vfork");
@@ -299,7 +299,7 @@ init(void)
 			putp(set_tab);
 		}
 	}
-	if (init_file && !issetugid() && (ifile = fopen(init_file, "r"))) {
+	if (init_file && (ifile = fopen(init_file, "r"))) {
 		while ((buf = fgetln(ifile, &len)) != NULL) {
 			if (buf[len-1] != '\n')
 				errx(1, "premature EOF reading %s", init_file);
@@ -325,7 +325,7 @@ reset(void)
 	if (reset_2string)
 		putp(reset_2string);
 	set_margins();
-	if (reset_file && !issetugid() && (rfile = fopen(reset_file, "r"))) {
+	if (reset_file && (rfile = fopen(reset_file, "r"))) {
 		while ((buf = fgetln(rfile, &len)) != NULL) {
 			if (buf[len-1] != '\n')
 				errx(1, "premature EOF reading %s", reset_file);
