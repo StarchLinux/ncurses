@@ -16,7 +16,7 @@ CLEANFILES+= termsort.c captoinfo.1
 COPTS+=	-O0
 .endif
 
-beforedepend: termsort.c
+dump_entry.o: termsort.c
 
 termsort.c: MKtermsort.sh
 	sh ${.CURDIR}/MKtermsort.sh awk ${CURSES}/Caps > ${.TARGET}
