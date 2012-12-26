@@ -129,7 +129,6 @@
 #define HAVE_TCGETPGRP 1
 #define HAVE_TERMIOS_H 1
 #define HAVE_TIMES 1
-#define HAVE_TTYENT_H 1
 #define HAVE_TYPEINFO 1
 #define HAVE_UNISTD_H 1
 #define HAVE_UNISTD_H 1
