@@ -57,7 +57,6 @@
 #define GCC_SCANF 1
 #define GCC_UNUSED __attribute__((__unused__))
 #define HAVE_BIG_CORE 1
-#define HAVE_BSD_CGETENT 1
 #define HAVE_BTOWC 1
 #define HAVE_CURSES_VERSION 1
 #define HAVE_DIRENT_H 1
