@@ -64,7 +64,7 @@ tcgetent(bp, name)
 	fname = pathvec;
 	pvec = pathvec;
 
-	if (!issetugid()) {
+	{
 		cp = getenv("TERMCAP");
 		/*
 		 * TERMCAP can have one of two things in it. It can be the name
@@ -117,11 +117,11 @@ tcgetent(bp, name)
 		}
 	*fname = (char *) 0;			/* mark end of vector */
 	if (cp && *cp && *cp != '/')
-		if (cgetset(cp) < 0)
+		if (_nc_cgetset(cp) < 0)
 			return (-2);
 
 	dummy = NULL;
-	i = cgetent(&dummy, pathvec, (char *)name);
+	i = _nc_cgetent(&dummy, pathvec, (char *)name);
 	
 	if (i == 0 && bp != NULL) {
 		strlcpy(bp, dummy, 1024);
