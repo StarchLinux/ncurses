@@ -4,9 +4,10 @@ PROG=	tset
 SRCS=	tset.c dump_entry.c termcap.c
 DPADD=	${LIBCURSES}
 LDADD=	-lcurses
-CURSES= ${.CURDIR}/../../lib/libcurses
+CURSES= ${.CURDIR}/..
 TIC= ${.CURDIR}/../tic
 CFLAGS+= -I${CURSES} -I${TIC} -I${.CURDIR} -I. -DHAVE_GETTTYNAM -DHAVE_TTYENT_H
+LDFLAGS+= -L..
 CLEANFILES+= termsort.c
 .PATH:  ${TIC}
 LINKS=	${BINDIR}/tset ${BINDIR}/reset

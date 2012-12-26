@@ -8,6 +8,7 @@ DPADD=	${LIBCURSES}
 LDADD=	-lcurses
 CURSES=	${.CURDIR}/../../lib/libcurses
 CFLAGS+= -I${CURSES} -I${.CURDIR} -I.
+LDFLAGS+= -L..
 CLEANFILES+= termsort.c captoinfo.1
 
 # Work around gcc optimization bug on sh
