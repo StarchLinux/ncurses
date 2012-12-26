@@ -64,7 +64,7 @@ static void   reset(void);
 static void   set_margins(void);
 static void   usage(void);
 
-extern char  *__progname;
+char  *__progname;
 
 int
 main(int argc, char *argv[])
@@ -73,6 +73,8 @@ main(int argc, char *argv[])
 	size_t len;
 	char *p, *term, *str;
 	char **oargv;
+	
+	__progname = argv[0];
 
 	oargv = argv;
 	term = NULL;
