@@ -16,6 +16,7 @@ AWK?=	/usr/bin/awk
 	${.CURDIR}/widechar
 
 LIB=    curses
+HDR=	curses.h term.h termcap.h tic.h unctrl.h
 SRCS=	codes.c comp_captab.c expanded.c fallback.c lib_gen.c lib_keyname.c \
 	names.c unctrl.c
 # base
@@ -357,6 +358,7 @@ afterinstall:
 .endif
 
 .include <bsd.lib.mk>
+.include <bsd.hdr.mk>
 
 init_keytry.o init_keytry.so init_keytry.po init_keytry.ln: init_keytry.h
 lib_options.o lib_options.so lib_options.po lib_options.ln: init_keytry.h
