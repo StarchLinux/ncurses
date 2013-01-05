@@ -9,7 +9,7 @@ SUBDIR = tic tput tset
 FALLBACK_LIST=
 
 # XXX - should be defined elsewhere
-AWK?=	/usr/bin/awk
+AWK?=	/bin/awk
 
 # Search in subdirs
 .PATH:	${.CURDIR}/base ${.CURDIR}/tinfo ${.CURDIR}/trace ${.CURDIR}/tty \
@@ -284,13 +284,13 @@ all: ${GENERATED}
 beforedepend: ${GENERATED}
 
 includes:
-	@cmp -s ${DESTDIR}/usr/include/ncurses.h ${.CURDIR}/curses.h || \
+	@cmp -s ${DESTDIR}/include/ncurses.h ${.CURDIR}/curses.h || \
 	  ${INSTALL} ${INSTALL_COPY} -m 444 -o $(BINOWN) -g $(BINGRP) \
-	  ${.CURDIR}/curses.h ${DESTDIR}/usr/include/ncurses.h
+	  ${.CURDIR}/curses.h ${DESTDIR}/include/ncurses.h
 	@cd ${.CURDIR}; for i in unctrl.h term.h termcap.h; do \
-	  cmp -s $$i ${DESTDIR}/usr/include/$$i || \
+	  cmp -s $$i ${DESTDIR}/include/$$i || \
 	  ${INSTALL} ${INSTALL_COPY} -m 444 -o $(BINOWN) -g $(BINGRP) $$i \
-	  ${DESTDIR}/usr/include; done
+	  ${DESTDIR}/include; done
 
 keys.list: ${.CURDIR}/tinfo/MKkeys_list.sh
 	sh ${.CURDIR}/tinfo/MKkeys_list.sh ${.CURDIR}/Caps | sort > ${.TARGET}
